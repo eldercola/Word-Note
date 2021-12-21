@@ -1,17 +1,38 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Nav></Nav>
+    <Mid></Mid>
+<!--    <el-drawer
+        title="高频词库"
+        :visible.sync="drawer"
+        :direction="direction">
+      <span>我来啦!</span>
+    </el-drawer>-->
+    <WordsDrawer :drawer="drawer"></WordsDrawer>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Mid from "@/components/Mid";
+import Nav from "@/components/Nav";
+import WordsDrawer from "@/components/WordsDrawer";
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    WordsDrawer,
+    Mid,
+    Nav
+  },
+  data () {
+    return {
+      drawer: false,
+    }
+  },
+  methods: {
+    setDrawer(open) {
+      this.drawer = open;
+    }
   }
 }
 </script>
